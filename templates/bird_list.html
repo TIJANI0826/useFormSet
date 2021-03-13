@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}list of birds{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Birds</h1>
+  <table class="table" id="book-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Common Name</th>
+        <th>Scientific Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bird in object_list %}
+        <tr>
+            <td>{{ bird.id }}</td>  
+          <td>{{ bird.common_name }}</td>
+          <td>{{ bird.scientific_name }}</td>
+          <td>
+            <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Modal title</h4>
+                  </div>
+                  <div id="form-modal-body" class="modal-body">
+                    
+                  </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 </div>
+               </div>
+             </div>
+           </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a data-toggle="modal"  href='{% url "bird_detail"  bird.id  %}' data-target="#form-modal">
+            details</a>
+            </button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ><a data-toggle="modal" href="{% url "bird_update"  bird.id  %}" id='edit' data-target="#form-modal">edit</a></button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a  href="{% url "bird_delete"  bird.id  %}">delete</a></button> 
+          
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="7" class="text-center bg-warning">No Bird</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'add_bird' %}">Create A new Bird</a></button>
+{% endblock %}

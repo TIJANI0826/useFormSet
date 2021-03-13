@@ -1,0 +1,7 @@
+<form  method="post">
+    {% csrf_token %}
+    Are you sure you want to delete this contact?
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Yes</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'bird_list' %}">No</a></button>
+</form>
+    

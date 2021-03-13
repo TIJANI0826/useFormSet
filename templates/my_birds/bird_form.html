@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} edit bird {% endblock %}
+
+<h1>Contact Update</h1>
+
+{% block content %}
+{% include 'my_birds/bird_form_inner.html' %}
+<a href="{% url 'bird_list' %}">
+{% endblock %}

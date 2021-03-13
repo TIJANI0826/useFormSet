@@ -1,0 +1,16 @@
+<div class="container">
+	<h1><p>{{object.common_name}}</p></h1>
+	
+	<ul class="list-group">
+		<li class="list-group-item d-flex justify-content-between align-items-center">Common Name
+			<span class="badge badge-primary badge-pill">{{object.common_name}}</span>
+		</li>
+	  	<li class="list-group-item d-flex justify-content-between align-items-center">Scientific Name
+	    	<span class="badge badge-primary badge-pill">{{object.scientific_name}}</span>
+	  	</li>
+	</ul>
+	<hr>
+	<form>
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'bird_list' %}">Return Home</a></button>
+	</form>
+</div>
